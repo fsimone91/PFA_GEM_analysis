@@ -207,7 +207,7 @@ void analysisClass::Loop()
                       //loop on chambers
                       for(int c=0; c<36 && gemRecHit_layer->at(j) == layer_index[l]; c++){
                           //loop on VFATs
-                          for(int v=0; v<23 && gemRecHit_chamber->at(j) == (c+1); v++){
+                          for(int v=0; v<24 && gemRecHit_chamber->at(j) == (c+1); v++){
                               if(getVFAT(gemRecHit_etaPartition->at(j), gemRecHit_chamber->at(j), gemRecHit_loc_x->at(j)) == v) nhits[e][l][c][v]++;
                           }
                       }
