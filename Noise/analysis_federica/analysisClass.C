@@ -167,7 +167,7 @@ void analysisClass::Loop()
               for(int l=0; l<2 && gemRecHit_region->at(j) == region_index[e]; l++){
                   //loop on chambers
                   for(int c=0; c<36 && gemRecHit_layer->at(j) == layer_index[l]; c++){
-                      if(gemRecHit_chamber->at(j) == c) counts[e][l][c]++;
+                      if(gemRecHit_chamber->at(j) == (c+1)) counts[e][l][c]++;
                   }
               }
           }
