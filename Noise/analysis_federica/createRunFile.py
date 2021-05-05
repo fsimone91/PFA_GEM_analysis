@@ -15,7 +15,8 @@ parser.add_argument("--run", type=str, default='', choices=[
                                                              '338714',
                                                              '340116',
                                                              '340220',
-                                                             '340323'
+                                                             '340323',
+                                                             '341343'
                                                             ], help="MWGR run in data")
 
 parser.add_argument("--n", type=int, default=255, help="number of .root files per job")
@@ -55,7 +56,8 @@ if args.dataset == 'data' and args.run == '340220':
     path = '/lustre/cms/store/user/gmilella/ExpressCosmics/CRAB3_gem_dpg_ntuple_mwgr2_2021_run340220_express/210306_100351/0000/'
 if args.dataset == 'data' and args.run == '340323':
     path = '/lustre/cms/store/user/gmilella/ExpressCosmics/CRAB3_gem_dpg_ntuple_mwgr2_2021_run340323_express/210323_122615/0000/'
-
+if args.dataset == 'data' and args.run == '341343':
+    path = '/lustre/cms/store/user/fsimone/MWGR3_Run_341343/'
 if args.dataset == 'MC' and args.MCprocess == 'Cosmics':
     path = ''
 if args.dataset == 'MC' and args.MCprocess == 'Zmumu':
