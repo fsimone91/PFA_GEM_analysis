@@ -57,7 +57,8 @@ if args.dataset == 'data' and args.run == '340220':
 if args.dataset == 'data' and args.run == '340323':
     path = '/lustre/cms/store/user/gmilella/ExpressCosmics/CRAB3_gem_dpg_ntuple_mwgr2_2021_run340323_express/210323_122615/0000/'
 if args.dataset == 'data' and args.run == '341343':
-    path = '/lustre/cms/store/user/fsimone/MWGR3_Run_341343/'
+    path = '/lustre/cms/store/user/gmilella/ExpressCosmics/CRAB3_gem_dpg_ntuple_mwgr3_2021_run341343_express/210507_215122/0000/'
+    #path = '/lustre/cms/store/user/fsimone/MWGR3_Run_341343/'
 if args.dataset == 'MC' and args.MCprocess == 'Cosmics':
     path = ''
 if args.dataset == 'MC' and args.MCprocess == 'Zmumu':
