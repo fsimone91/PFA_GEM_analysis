@@ -127,19 +127,10 @@ public :
    vector<bool>    *mu_isMedium;
    vector<bool>    *mu_isTight;
    vector<bool>    *mu_propagated_isME11;
-   vector<float>   *mu_propagated_numberOfValidTrackerHits;
-   vector<float>   *mu_propagated_numberOfValidPixelHits;
-   vector<float>   *mu_propagated_EtaPartition_centerX;
-   vector<float>   *mu_propagated_EtaPartition_centerY;
-   vector<float>   *mu_propagated_EtaPartition_rMin;   
-   vector<float>   *mu_propagated_EtaPartition_rMax;   
-   vector<float>   *mu_propagated_EtaPartition_phiMin; 
-   vector<float>   *mu_propagated_EtaPartition_phiMax; 
    Float_t         mu_path_length;
    vector<bool>    *mu_isinsideout;
    vector<bool>    *mu_isincoming;
    vector<int>     *mu_propagated_region;
-   vector<float>   *mu_propagated_Outermost_z;
    vector<int>     *mu_propagated_layer;
    vector<int>     *mu_propagated_chamber;
    vector<int>     *mu_propagated_etaP;
@@ -157,10 +148,6 @@ public :
    vector<float>   *mu_propagatedGlb_z;
    vector<float>   *mu_propagatedGlb_r;
    vector<float>   *mu_propagatedGlb_phi;
-   vector<float>   *mu_propagatedGlb_errR;
-   vector<float>   *mu_propagatedGlb_errPhi;
-   vector<float>   *mu_propagatedGlb_errX;
-   vector<float>   *mu_propagatedGlb_errY;
 
    // List of branches
    TBranch        *b_event_runNumber;   //!
@@ -259,19 +246,10 @@ public :
    TBranch        *b_mu_isMedium;   //!
    TBranch        *b_mu_isTight;   //!
    TBranch        *b_mu_propagated_isME11;   //!
-   TBranch        *b_mu_propagated_numberOfValidPixelHits;   //!
-   TBranch        *b_mu_propagated_numberOfValidTrackerHits;   //!
-   TBranch        *b_mu_propagated_EtaPartition_centerX;   //!
-   TBranch        *b_mu_propagated_EtaPartition_centerY;   //!
-   TBranch        *b_mu_propagated_EtaPartition_rMin;   //!
-   TBranch        *b_mu_propagated_EtaPartition_rMax;   //!
-   TBranch        *b_mu_propagated_EtaPartition_phiMin;   //!
-   TBranch        *b_mu_propagated_EtaPartition_phiMax;   //!
    TBranch        *b_mu_path_length;   //!
    TBranch        *b_mu_isinsideout;   //!
    TBranch        *b_mu_isincoming;   //!
    TBranch        *b_mu_propagated_region;   //!
-   TBranch        *b_mu_propagated_Outermost_z;   //!
    TBranch        *b_mu_propagated_layer;   //!
    TBranch        *b_mu_propagated_chamber;   //!
    TBranch        *b_mu_propagated_etaP;   //!
@@ -289,10 +267,6 @@ public :
    TBranch        *b_mu_propagatedGlb_z;   //!
    TBranch        *b_mu_propagatedGlb_r;   //!
    TBranch        *b_mu_propagatedGlb_phi;   //!
-   TBranch        *b_mu_propagatedGlb_errX;   //!
-   TBranch        *b_mu_propagatedGlb_errY;   //!
-   TBranch        *b_mu_propagatedGlb_errR;   //!
-   TBranch        *b_mu_propagatedGlb_errPhi;   //!
 
    analysisClass(TTree *tree, TString fname);
    virtual ~analysisClass();
@@ -439,19 +413,9 @@ void analysisClass::Init(TTree *tree)
    mu_isMedium = 0;
    mu_isTight = 0;
    mu_propagated_isME11 = 0;
-   mu_propagated_numberOfValidPixelHits = 0;
-   mu_propagated_numberOfValidTrackerHits = 0;
-   mu_propagated_EtaPartition_centerX = 0;
-   mu_propagated_EtaPartition_centerY = 0;
-   mu_propagated_EtaPartition_rMin = 0;
-   mu_propagated_EtaPartition_rMax = 0;
-   mu_propagated_EtaPartition_phiMin = 0;
-   mu_propagated_EtaPartition_phiMax = 0;
-
    mu_isinsideout = 0;
    mu_isincoming = 0;
    mu_propagated_region = 0;
-   mu_propagated_Outermost_z = 0;
    mu_propagated_layer = 0;
    mu_propagated_chamber = 0;
    mu_propagated_etaP = 0;
@@ -469,10 +433,6 @@ void analysisClass::Init(TTree *tree)
    mu_propagatedGlb_z = 0;
    mu_propagatedGlb_r = 0;
    mu_propagatedGlb_phi = 0;
-   mu_propagatedGlb_errR = 0;
-   mu_propagatedGlb_errPhi = 0;
-   mu_propagatedGlb_errX = 0;
-   mu_propagatedGlb_errY = 0;
    // Set branch addresses and branch pointers
    if (!tree) return;
    fChain = tree;
@@ -577,20 +537,10 @@ void analysisClass::Init(TTree *tree)
    fChain->SetBranchAddress("mu_isMedium", &mu_isMedium, &b_mu_isMedium);
    fChain->SetBranchAddress("mu_isTight", &mu_isTight, &b_mu_isTight);
    fChain->SetBranchAddress("mu_propagated_isME11", &mu_propagated_isME11, &b_mu_propagated_isME11);
-   fChain->SetBranchAddress("mu_propagated_numberOfValidPixelHits", &mu_propagated_numberOfValidPixelHits, &b_mu_propagated_numberOfValidPixelHits);
-   fChain->SetBranchAddress("mu_propagated_numberOfValidTrackerHits", &mu_propagated_numberOfValidTrackerHits, &b_mu_propagated_numberOfValidTrackerHits);
-   fChain->SetBranchAddress("mu_propagated_EtaPartition_centerX", &mu_propagated_EtaPartition_centerX, &b_mu_propagated_EtaPartition_centerX); 
-   fChain->SetBranchAddress("mu_propagated_EtaPartition_centerY", &mu_propagated_EtaPartition_centerY, &b_mu_propagated_EtaPartition_centerY); 
-   fChain->SetBranchAddress("mu_propagated_EtaPartition_rMin",    &mu_propagated_EtaPartition_rMin   , &b_mu_propagated_EtaPartition_rMin   ); 
-   fChain->SetBranchAddress("mu_propagated_EtaPartition_rMax",    &mu_propagated_EtaPartition_rMax   , &b_mu_propagated_EtaPartition_rMax   ); 
-   fChain->SetBranchAddress("mu_propagated_EtaPartition_phiMin",  &mu_propagated_EtaPartition_phiMin , &b_mu_propagated_EtaPartition_phiMin ); 
-   fChain->SetBranchAddress("mu_propagated_EtaPartition_phiMax",  &mu_propagated_EtaPartition_phiMax , &b_mu_propagated_EtaPartition_phiMax ); 
-
    fChain->SetBranchAddress("mu_path_length", &mu_path_length, &b_mu_path_length);
    fChain->SetBranchAddress("mu_isinsideout", &mu_isinsideout, &b_mu_isinsideout);
    fChain->SetBranchAddress("mu_isincoming", &mu_isincoming, &b_mu_isincoming);
    fChain->SetBranchAddress("mu_propagated_region", &mu_propagated_region, &b_mu_propagated_region);
-   fChain->SetBranchAddress("mu_propagated_Outermost_z", &mu_propagated_Outermost_z, &b_mu_propagated_Outermost_z);
    fChain->SetBranchAddress("mu_propagated_layer", &mu_propagated_layer, &b_mu_propagated_layer);
    fChain->SetBranchAddress("mu_propagated_chamber", &mu_propagated_chamber, &b_mu_propagated_chamber);
    fChain->SetBranchAddress("mu_propagated_etaP", &mu_propagated_etaP, &b_mu_propagated_etaP);
@@ -608,10 +558,6 @@ void analysisClass::Init(TTree *tree)
    fChain->SetBranchAddress("mu_propagatedGlb_z", &mu_propagatedGlb_z, &b_mu_propagatedGlb_z);
    fChain->SetBranchAddress("mu_propagatedGlb_r", &mu_propagatedGlb_r, &b_mu_propagatedGlb_r);
    fChain->SetBranchAddress("mu_propagatedGlb_phi", &mu_propagatedGlb_phi, &b_mu_propagatedGlb_phi);
-   fChain->SetBranchAddress("mu_propagatedGlb_errR", &mu_propagatedGlb_errR, &b_mu_propagatedGlb_errR);
-   fChain->SetBranchAddress("mu_propagatedGlb_errPhi", &mu_propagatedGlb_errPhi, &b_mu_propagatedGlb_errPhi);
-   fChain->SetBranchAddress("mu_propagatedGlb_errX", &mu_propagatedGlb_errX, &b_mu_propagatedGlb_errX);
-   fChain->SetBranchAddress("mu_propagatedGlb_errY", &mu_propagatedGlb_errY, &b_mu_propagatedGlb_errY);
    Notify();
 }
 

@@ -16,9 +16,7 @@ parser.add_argument("--run", type=str, default='', choices=[
                                                              '340116',
                                                              '340220',
                                                              '340323',
-                                                             '341343',
-                                                             '342728',
-                                                             '342810'
+                                                             '341343'
                                                             ], help="MWGR run in data")
 
 parser.add_argument("--n", type=int, default=255, help="number of .root files per job")
@@ -59,15 +57,10 @@ if args.dataset == 'data' and args.run == '340220':
 if args.dataset == 'data' and args.run == '340323':
     path = '/lustre/cms/store/user/gmilella/ExpressCosmics/CRAB3_gem_dpg_ntuple_mwgr2_2021_run340323_express/210323_122615/0000/'
 if args.dataset == 'data' and args.run == '341343':
-    path = '/lustre/cms/store/user/gmilella/ExpressCosmics/CRAB3_gem_dpg_ntuple_mwgr3_2021_run341343_express/210507_215122/0000/'
-    #path = '/lustre/cms/store/user/fsimone/MWGR3_Run_341343/'
-if args.dataset == 'data' and args.run == '342728':
-    path = '/lustre/cms/store/user/fsimone/CRUZET/Run_342728/'
-if args.dataset == 'data' and args.run == '342810':
-    path = '/lustre/cms/store/user/fsimone/CRUZET/Run_342810/'
+    path = '/lustre/cms/store/user/fsimone/MWGR3_Run_341343/'
 
 if args.dataset == 'MC' and args.MCprocess == 'Cosmics':
-    path = '/lustre/cms/store/user/fsimone/MC_Cosmics2021'
+    path = ''
 if args.dataset == 'MC' and args.MCprocess == 'Zmumu':
     path = '/lustre/cms/store/user/gmilella/Run3Summer19GS-step0/CRAB3_MC_Zmumu_ntuplizer/210507_210948/0000/'
 

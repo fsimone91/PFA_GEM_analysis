@@ -1,0 +1,5 @@
+# .cpp output
+*/*/*.cpp
+
+#output plots
+macros/plots/*.png
